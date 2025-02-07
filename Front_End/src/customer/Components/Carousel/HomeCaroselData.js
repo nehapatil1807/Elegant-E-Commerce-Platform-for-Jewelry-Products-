@@ -2,7 +2,7 @@ export const homeCarouselData = [
   {
     type: "video",
     src: "https://pub-fcbdfa5d08884a7fb45a0457f296badb.r2.dev/video/b/1724486867518.mp4",
-    path: "/women/rings/engagement",
+    path: "/womens/rings/engagement",
   },
   {
     type: "image",
