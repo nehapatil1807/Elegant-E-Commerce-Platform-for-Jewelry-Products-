@@ -139,8 +139,8 @@ Back-End/
 
 ## Contributors
 - **Pratik Shahane** - Full-stack Developer
-- **Anchal Gupta** - Full-stack Developer
-- **Neha Patil** - Full-stack Developer
+- **Anchal Gupta**   - Full-stack Developer
+- **Neha Patil**     - Full-stack Developer
 
 
 
