@@ -87,7 +87,7 @@ public class PaymentController {
 		      paymentLinkRequest.put("reminder_enable",true);
 
 		      // Set the callback URL and method
-		      paymentLinkRequest.put("callback_url","http://localhost:4200/payment-success?order_id="+orderId);
+		      paymentLinkRequest.put("callback_url","http://localhost:3000/payment-success?order_id="+orderId);
 		      paymentLinkRequest.put("callback_method","get");
 
 		      // Create the payment link using the paymentLink.create() method
@@ -120,36 +120,33 @@ public class PaymentController {
 //		order_id
 	}
 	
-  @GetMapping("/payments")
-  public ResponseEntity<ApiResponse> redirect(@RequestParam(name="payment_id") String paymentId,@RequestParam("order_id")Long orderId) throws RazorpayException, OrderException {
-	  RazorpayClient razorpay = new RazorpayClient(apiKey, apiSecret);
-	  Order order =orderService.findOrderById(orderId);
-	
-	  try {
-		
-		
-		Payment payment = razorpay.payments.fetch(paymentId);
-		System.out.println("payment details --- "+payment+payment.get("status"));
-		
-		if(payment.get("status").equals("captured")) {
-			System.out.println("payment details --- "+payment+payment.get("status"));
-		  
-			order.getPaymentDetails().setPaymentId(paymentId);
-			order.getPaymentDetails().setStatus(PaymentStatus.COMPLETED);
-			order.setOrderStatus(OrderStatus.PLACED);
-//			order.setOrderItems(order.getOrderItems());
-			System.out.println(order.getPaymentDetails().getStatus()+"payment status ");
-			orderRepository.save(order);
-		}
-		ApiResponse res=new ApiResponse("your order get placed", true);
-	      return new ResponseEntity<ApiResponse>(res,HttpStatus.OK);
-	      
-	} catch (Exception e) {
-		System.out.println("errrr payment -------- ");
-		new RedirectView("https://shopwithzosh.vercel.app/payment/failed");
-		throw new RazorpayException(e.getMessage());
-	}
+	@GetMapping("/payments")
+	public ResponseEntity<ApiResponse> redirect(@RequestParam(name="payment_id") String paymentId, 
+	                                            @RequestParam("order_id") Long orderId) throws RazorpayException, OrderException {
+	    System.out.println("Received request for payment status with payment_id: " + paymentId + " and order_id: " + orderId);
+	    
+	    RazorpayClient razorpay = new RazorpayClient(apiKey, apiSecret);
+	    Order order = orderService.findOrderById(orderId);
+	    
+	    try {
+	        Payment payment = razorpay.payments.fetch(paymentId);
+	        System.out.println("Payment details: " + payment.toString());
 
-  }
+	        if (payment.get("status").equals("captured")) {
+	            order.getPaymentDetails().setPaymentId(paymentId);
+	            order.getPaymentDetails().setStatus(PaymentStatus.COMPLETED);
+	            order.setOrderStatus(OrderStatus.PLACED);
+	            
+	            orderRepository.save(order);
+	            System.out.println("Order successfully updated with payment status: " + order.getPaymentDetails().getStatus());
+	        }
+
+	        ApiResponse res = new ApiResponse("Your order has been placed successfully", true);
+	        return new ResponseEntity<>(res, HttpStatus.OK);
+	    } catch (Exception e) {
+	        System.out.println("Error fetching payment details: " + e.getMessage());
+	        return new ResponseEntity<>(new ApiResponse("Failed to verify payment", false), HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
 
 }
