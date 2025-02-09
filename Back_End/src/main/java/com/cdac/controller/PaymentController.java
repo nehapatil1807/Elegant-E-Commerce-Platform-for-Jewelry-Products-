@@ -64,7 +64,7 @@ public class PaymentController {
 
 		      // Create a JSON object with the payment link request parameters
 		      JSONObject paymentLinkRequest = new JSONObject();
-		      paymentLinkRequest.put("amount",order.getTotalPrice()* 100);
+		      paymentLinkRequest.put("amount",order.getTotalDiscountedPrice()*100);
 		      paymentLinkRequest.put("currency","INR");    
 //		      paymentLinkRequest.put("expire_by",1691097057);
 //		      paymentLinkRequest.put("reference_id",order.getId().toString());
