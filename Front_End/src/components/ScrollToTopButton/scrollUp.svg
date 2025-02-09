@@ -1,0 +1,9 @@
+import scrollUpIcon from './scrollUp.svg';
+
+<button
+    onClick={scrollToTop}
+    className={`scroll-to-top ${isVisible ? 'visible' : ''}`}
+    aria-label="Scroll to top"
+>
+    <img src={scrollUpIcon} alt="Scroll to top" />
+</button>

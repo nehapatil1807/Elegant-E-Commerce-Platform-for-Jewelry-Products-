@@ -1,0 +1,27 @@
+.stores-container {
+    font-family: "Georgia", serif;
+    text-align: center;
+    /* padding: 2rem; */
+    /* background-color: #fff8e7; Light golden background */
+  }
+  
+  .stores-title {
+    font-size: 2.5rem;
+    color: #850e66; /* Golden color for title */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stores-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #4d4d4d;
+  }
+  
+  .leaflet-container {
+    border: 2px solid #d4af37; /* Golden border around the map */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for the map */
+  }
+  
