@@ -1,0 +1,14 @@
+# Root-Level (Global Ignores)
+.vscode/
+.env
+
+# Front-End (Vite + React)
+Front-End/node_modules/
+Front-End/dist/
+Front-End/build/
+
+# Back-End (.NET - ElegantJewellery)
+Back-End/ElegantJewellery/bin/
+Back-End/ElegantJewellery/obj/
+Back-End/.vs/
+Back-End/*.db

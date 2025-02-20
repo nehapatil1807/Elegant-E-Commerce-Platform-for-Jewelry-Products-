@@ -1,0 +1,140 @@
+.product-card {
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Image Styles */
+.product-image-wrapper {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+  background: var(--neutral-200);
+  display: block;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.08);
+}
+
+/* Quick View Button */
+.quick-view-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--neutral-100);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+  color: var(--neutral-600);
+}
+
+.product-card:hover .quick-view-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-view-btn:hover {
+  background: var(--primary);
+  color: var(--neutral-100);
+}
+
+/* Discount Badge */
+.discount-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--primary);
+  color: var(--neutral-100);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 1;
+}
+
+/* Product Info */
+.product-info {
+  padding: 1.5rem;
+  text-decoration: none;
+  display: block;
+}
+
+.product-name {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  color: var(--neutral-800);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-normal);
+}
+
+.product-card:hover .product-name {
+  color: var(--primary);
+}
+
+.product-category {
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  margin-bottom: 1rem;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.current-price {
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  color: #212121 !important;
+}
+
+.original-price {
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  text-decoration: line-through;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-name {
+    font-size: 1rem;
+  }
+
+  .current-price {
+    font-size: 1.125rem ;
+  }
+}

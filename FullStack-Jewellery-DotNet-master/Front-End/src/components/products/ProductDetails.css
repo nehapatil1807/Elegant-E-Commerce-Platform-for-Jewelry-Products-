@@ -1,0 +1,364 @@
+/* src/components/products/ProductDetails.css */
+
+/* Page Layout */
+.product-details-page {
+  background-color: var(--neutral-200);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 2rem;
+}
+
+.breadcrumb-item a {
+  color: var(--neutral-600);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb-item.active {
+  color: var(--primary);
+}
+
+/* Product Gallery */
+.product-gallery {
+  padding: 2rem;
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--neutral-100);
+  margin-bottom: 1rem;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-normal);
+}
+
+.main-image-container:hover .main-image {
+  transform: scale(1.05);
+}
+
+/* Thumbnails */
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.thumbnail-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.thumbnail-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.thumbnail-btn:hover img {
+  transform: scale(1.1);
+}
+
+.thumbnail-btn.active {
+  border: 2px solid var(--primary);
+}
+
+.thumbnail-btn.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--primary-rgb), 0.1);
+}
+
+/* Product Info */
+.product-info {
+  padding: 2rem;
+}
+
+.product-title {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  color: var(--neutral-900);
+  margin-bottom: 0.5rem;
+}
+
+.product-category {
+  font-size: 1rem;
+  color: var(--neutral-600);
+  margin-bottom: 1.5rem;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.current-price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.original-price {
+  font-size: 1.25rem;
+  color: var(--neutral-500);
+  text-decoration: line-through;
+}
+
+/* Stock Status */
+.stock-status {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.stock-status i {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+/* Quantity Controls */
+.quantity-selector {
+  margin-bottom: 1.5rem;
+}
+
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.quantity-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  color: var(--neutral-700);
+  transition: all var(--transition-normal);
+}
+
+.quantity-btn:hover:not(:disabled) {
+  background: var(--primary);
+  color: var(--neutral-100);
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-input {
+  width: 60px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid var(--neutral-300);
+  border-right: 1px solid var(--neutral-300);
+  padding: 0.75rem 0;
+}
+
+.quantity-input:focus {
+  outline: none;
+}
+
+/* Add to Cart Button */
+.btn-add-to-cart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-normal);
+}
+
+.btn.btn-primary:disabled {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15rem;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--neutral-100);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-normal);
+}
+
+.feature-item:hover {
+  transform: translateY(-2px);
+}
+
+.feature-item i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+/* Product Description */
+.product-description {
+  margin-top: 2rem;
+  color: var(--neutral-700);
+  line-height: 1.6;
+}
+
+.product-description h5 {
+  font-family: var(--font-primary);
+  color: var(--neutral-900);
+  margin-bottom: 1rem;
+}
+
+.product-description p {
+  margin-bottom: 1.5rem;
+}
+
+/* Feature List */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* Add to Cart Animation */
+@keyframes addToCart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn-primary:not(:disabled):active {
+  animation: addToCart 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .product-gallery {
+    padding: 1rem;
+  }
+
+  .main-image-container {
+    height: 400px;
+  }
+
+  .product-title {
+    font-size: 1.75rem;
+  }
+
+  .current-price {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-gallery {
+    padding: 1rem;
+  }
+
+  .main-image-container {
+    height: 350px;
+  }
+
+  .thumbnail-grid {
+    gap: 0.5rem;
+  }
+
+  .product-info {
+    padding: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quantity-btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-image-container {
+    height: 300px;
+  }
+
+  .thumbnail-grid {
+    gap: 0.25rem;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+  }
+
+  .current-price {
+    font-size: 1.5rem;
+  }
+
+  .feature-item {
+    padding: 0.75rem;
+  }
+
+  .feature-item i {
+    font-size: 1.25rem;
+  }
+}

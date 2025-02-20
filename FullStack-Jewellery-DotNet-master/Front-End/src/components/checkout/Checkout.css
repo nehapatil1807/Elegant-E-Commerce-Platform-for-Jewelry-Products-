@@ -1,0 +1,234 @@
+/* src/components/checkout/checkout.css */
+
+.checkout-page {
+  background-color: var(--neutral-200);
+  padding: var(--spacing-8) 0;
+}
+
+/* Checkout Steps */
+.checkout-steps {
+  margin-bottom: var(--spacing-8);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--neutral-100);
+  border: 2px solid var(--neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-2);
+  color: var(--neutral-600);
+  transition: all var(--transition-normal);
+}
+
+.step-indicator.completed {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--neutral-100);
+}
+
+.step-indicator.current {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.step-label {
+  font-size: var(--text-sm);
+  color: var(--neutral-600);
+}
+
+.step-line {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--neutral-300);
+  z-index: 0;
+}
+
+.step-line.completed {
+  background: var(--primary);
+}
+
+/* Form Sections */
+.checkout-section {
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  color: var(--neutral-900);
+  margin-bottom: var(--spacing-6);
+  padding-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+/* Order Summary */
+.order-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-4) 0;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-image {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-right: var(--spacing-4);
+}
+
+.order-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-item-details {
+  flex-grow: 1;
+}
+
+.order-item-name {
+  font-weight: 500;
+  color: var(--neutral-800);
+  margin-bottom: var(--spacing-1);
+}
+
+.order-item-meta {
+  font-size: var(--text-sm);
+  color: var(--neutral-600);
+}
+
+/* Payment Methods */
+.payment-method {
+  border: 2px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.payment-method:hover {
+  border-color: var(--primary);
+  background: var(--neutral-200);
+}
+
+.payment-method.selected {
+  border-color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.05);
+}
+
+.payment-method-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.payment-method-icon {
+  font-size: var(--text-xl);
+  color: var(--primary);
+}
+
+/* Address Form */
+.address-form {
+  margin-bottom: var(--spacing-6);
+}
+
+.pincode-input {
+  position: relative;
+}
+
+.pincode-spinner {
+  position: absolute;
+  right: var(--spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  color: var(--neutral-700);
+  background: none;
+  border: none;
+  transition: all var(--transition-normal);
+}
+
+.btn-back:hover {
+  color: var(--primary);
+  transform: translateX(-4px);
+}
+
+/* Success State */
+.success-state {
+  text-align: center;
+  padding: var(--spacing-12) var(--spacing-4);
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--success);
+  margin-bottom: var(--spacing-6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkout-page {
+    padding: var(--spacing-4);
+  }
+
+  .checkout-steps {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .step-line {
+    display: none;
+  }
+
+  .action-buttons {
+    flex-direction: column-reverse;
+    gap: var(--spacing-3);
+  }
+
+  .btn-back {
+    justify-content: center;
+  }
+
+  
+}

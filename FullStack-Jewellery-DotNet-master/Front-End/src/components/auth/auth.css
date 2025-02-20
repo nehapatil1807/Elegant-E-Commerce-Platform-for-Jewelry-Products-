@@ -1,0 +1,141 @@
+/* src/components/auth/auth.css */
+
+.auth-page {
+    min-height: calc(100vh - var(--navbar-height));
+    padding: var(--spacing-8) 0;
+    background-color: var(--neutral-200);
+  }
+  
+  .auth-card {
+    border: none;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  
+  .auth-header {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .auth-title {
+    font-family: var(--font-primary);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-2);
+  }
+  
+  .auth-subtitle {
+    color: var(--neutral-600);
+    font-size: var(--text-sm);
+  }
+  
+  .auth-form {
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-4);
+  }
+  
+  /* Password Strength Indicator */
+  .password-strength {
+    margin-top: var(--spacing-2);
+  }
+  
+  .strength-bar {
+    height: 4px;
+    border-radius: var(--radius-full);
+    background-color: var(--neutral-200);
+    margin-bottom: var(--spacing-1);
+  }
+  
+  .strength-bar.weak {
+    background-color: var(--danger);
+    width: 33.33%;
+  }
+  
+  .strength-bar.medium {
+    background-color: var(--warning);
+    width: 66.66%;
+  }
+  
+  .strength-bar.strong {
+    background-color: var(--success);
+    width: 100%;
+  }
+  
+  .strength-text {
+    font-size: var(--text-xs);
+    color: var(--neutral-600);
+  }
+  
+  /* Success State */
+  .auth-success {
+    text-align: center;
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+  
+  .success-icon {
+    font-size: 4rem;
+    color: var(--success);
+    margin-bottom: var(--spacing-4);
+  }
+  
+  /* Links */
+  .auth-links {
+    text-align: center;
+    margin-top: var(--spacing-4);
+  }
+  
+  .auth-links a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Phone Input */
+  .phone-input {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+  
+  .phone-input .country-code {
+    width: 80px;
+    flex-shrink: 0;
+  }
+  
+  /* Loading States */
+  .btn.loading-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--neutral-100) !important;
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+  
+  .loading-btn .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    border-color: var(--neutral-100);
+    border-right-color: transparent;
+  }
+  
+  /* Responsive */
+  @media (max-width: 576px) {
+    .auth-page {
+      padding: var(--spacing-4);
+    }
+    
+    .auth-card {
+      border-radius: var(--radius-md);
+    }
+  }
